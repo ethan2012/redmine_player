@@ -19,7 +19,6 @@
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyo
 /log/*.log*
 /log/mongrel_debug
-/plugins/*
 !/plugins/README
 /public/dispatch.*
 /public/plugin_assets/*
@@ -40,4 +39,5 @@
 /.bundle
 /Gemfile.lock
 /Gemfile.local
-
+*.pub
+rsa
