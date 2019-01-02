@@ -10,5 +10,5 @@ Redmine::Plugin.register :polls do
   	permission :查看polls, :polls => :index
   	permission :投票polls, :polls => :vote
   end
-  menu :project_menu, :polls, { :controller => 'polls', :action => 'index' }, :caption => 'Polls', :after => :activity, :param => :project_id
+  menu :project_menu, :polls, { :controller => 'polls', :action => 'index' }, :param => :project_id, :after => :activity
 end
