@@ -5,21 +5,17 @@ module IssuePlan
     end
 
     def project_settings_tabs
+      @test = User.last
       tabs = super
-      # if User.current.allowed_to?(:some_permission, @project)
-        # tabs.push({
-        #   name: 'some_plugin_settings',
-        #   partial: 'projects/settings/some_plugin',
-        #   label: :label_some_plugin
-        # })
-      tabs.push({
-        :name => 'issue_plans', 
-        # :action => :edit_project, 
-        :partial => 'projects/settings/issues', 
-        :label => :label_issue_plan
-      })
-      # end
-      tabs
+      tabs.insert(
+        3, # 在问题后插入问题规划
+        {
+          :name => 'issue_plans', 
+          # :action => :edit_project, 
+          :partial => 'projects/settings/issues', 
+          :label => :label_issue_plan
+        }
+      )
     end
 
   end
