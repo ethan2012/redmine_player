@@ -5,7 +5,6 @@ module IssuePlanTabPatch
     end
 
     def project_settings_tabs
-      @test = User.last
       tabs = super
       tabs.insert(
         3, # 在问题后插入问题规划

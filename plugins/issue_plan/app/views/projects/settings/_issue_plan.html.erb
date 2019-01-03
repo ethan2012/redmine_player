@@ -1,21 +1,15 @@
 <%= labelled_form_for @project do |f| %>
-  <%= hidden_field_tag 'tab', 'issues' %>
+  <%= hidden_field_tag 'tab', 'issue_plans' %>
 
-  <p><%= link_to l(:label_issue_plan_new), new_project_membership_path(@project), :remote => true, :class => "icon icon-add" %></p>
-
-  <% unless @issue_custom_fields.empty? %>
-  <fieldset class="box tabular" id="project_issue_custom_fields"><legend><%= toggle_checkboxes_link('#project_issue_custom_fields input[type=checkbox]:enabled') %><%=l(:label_issue_plan_plural)%></legend>
-  <% @issue_custom_fields.each do |custom_field| %>
+  <fieldset class="box tabular" id="project_issue_plans"><legend><%= toggle_checkboxes_link('#project_issue_plans input[type=checkbox]:enabled') %><%=l(:label_issue_plan_plural)%></legend>
+  <% IssuePlan.all.each do |issue_plan| %>
     <label class="floating">
-      <%= check_box_tag 'project[issue_custom_field_ids][]', custom_field.id, (@project.all_issue_custom_fields.include? custom_field),
-          :disabled => (custom_field.is_for_all? ? "disabled" : nil),
-          :id => nil %>
-      <%= custom_field_name_tag(custom_field) %>
+      <%= check_box_tag 'project[issue_plan_ids][]', issue_plan.id, (@project.issue_plans.include? issue_plan), :id => nil %>
+      <%= issue_plan.name %>
     </label>
   <% end %>
-  <%= hidden_field_tag 'project[issue_custom_field_ids][]', '' %>
+  <%= hidden_field_tag 'project[issue_plan_ids][]', '' %>
   </fieldset>
-  <% end %>
 
 
   <p><%= submit_tag l(:button_save) %></p>
