@@ -1,7 +1,7 @@
-module IssuePlan
+module IssuePlanTabPatch
   module ProjectSettingsTabs
     def self.apply
-      ProjectsController.send :helper, IssuePlan::ProjectSettingsTabs
+      ProjectsController.send :helper, IssuePlanTabPatch::ProjectSettingsTabs
     end
 
     def project_settings_tabs
@@ -12,11 +12,10 @@ module IssuePlan
         {
           :name => 'issue_plans', 
           # :action => :edit_project, 
-          :partial => 'projects/settings/issues', 
+          :partial => 'projects/settings/issue_plan', 
           :label => :label_issue_plan
         }
       )
     end
-
   end
 end

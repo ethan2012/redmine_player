@@ -1,0 +1,5 @@
+zh:
+  # Text direction: Left-to-Right (ltr) or Right-to-Left (rtl)
+  label_issue_plan: 问题规划
+  label_issue_plan_plural: 自定义规划
+  label_issue_plan_new: 新建自定义规划

@@ -7,6 +7,7 @@ Redmine::Plugin.register :issue_plan do
   author_url 'https://github.com/ethan2012'
 
   Rails.configuration.to_prepare do
-    IssuePlan::ProjectSettingsTabs.apply
+    IssuePlanTabPatch::ProjectSettingsTabs.apply
+    IssuePlanProjectPatch::ProjectPatch.apply
   end
 end
